@@ -1,5 +1,12 @@
 const mongoose = require("mongoose");
+const { nanoid } = require("nanoid");
  const pasteSchema = new mongoose.Schema({
+    pasteId: {
+        type: String,
+        default:()=> nanoid(10),
+        unique: true,
+        index: true
+    },
     content: {
         type: String,
         required: true
@@ -18,4 +25,4 @@ const mongoose = require("mongoose");
     }
  }, {timestamps: true});
 
- module.exports = mongoose.model("Paste", pasteSchema);
+ module.exports = mongoose.model("pastes", pasteSchema);
