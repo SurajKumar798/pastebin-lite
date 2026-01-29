@@ -21,16 +21,25 @@ router.post('/', async(req, res)=>{
         });
         res.status(201).json({
             id: paste._id,
-            url: `${process.env.BASE_URL}/api/pastes/${paste._id}`
+            url: `${process.env.BASE_URL}/api/pastes/${paste.PasteId}`
         });
     }catch(err){
         res.status(500).json({ error: "server error" });
     }
 });
 
+router.get('/', async(req, res)=>{
+    try{
+        const pastes = await Paste.find().sort({createdAt: -1});
+        res.json(pastes);
+    }catch(err){
+        res.status(500).json({ error: "server error"});
+    }
+});
+
 router.get("/:id", async(req, res)=>{
     try{
-        const paste = await Paste.findById(req.params.id);
+        const paste = await Paste.findOne({ pasteId: req.params.id });
         if(!paste) return res.status(404).json({ error: "Not found" });
 
         if(paste.expiresAt && new Date() > paste.expiresAt){
