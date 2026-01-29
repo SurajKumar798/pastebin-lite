@@ -33,7 +33,8 @@ router.get('/', async(req, res)=>{
         const pastes = await Paste.find().sort({createdAt: -1});
         res.json(pastes);
     }catch(err){
-        res.status(500).json({ error: "server error"});
+        console.log("GET /api/pastes error:", err)
+        res.status(500).json({ error: err.message});
     }
 });
 
