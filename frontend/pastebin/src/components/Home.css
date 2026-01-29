@@ -1,0 +1,43 @@
+header{
+    background: #023859 linear-gradient(#023859, #02456c);
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    font-size: 1.5rem;
+    color: white;
+    padding: 13px 0 0 48px;
+    font-weight: 500;
+}
+form{
+    margin-top: 65px;
+}
+form h3{
+    font-family: serif;
+}
+.post-form-bottom{
+    margin-top: 15px;
+}
+
+.form-column {
+  width: 500px;   
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.form-row label {
+  width: 150px;
+  font-family: serif;
+}
+
+form hr {
+  width: 70%;  
+  margin: 10px 0;
+}
